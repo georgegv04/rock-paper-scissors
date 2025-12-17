@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
   let things = ["Rock", "Paper", "Scissors"];
   let thing = things[Math.floor(Math.random() * things.length)];
