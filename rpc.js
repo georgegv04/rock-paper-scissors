@@ -72,7 +72,7 @@ function playGame(numberOfGames) {
   } else if (humanScore < computerScore) {
     console.log("The final winner is the Computer");
   } else {
-    console.log("The game is tie");
+    console.log("The game is a tie");
   }
 }
 
