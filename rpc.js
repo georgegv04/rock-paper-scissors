@@ -66,6 +66,14 @@ function playGame(numberOfGames) {
 
   console.log(`Human Score: ${humanScore}`);
   console.log(`Computer Score: ${computerScore}`);
+
+  if (humanScore > computerScore) {
+    console.log("The final winner is the Human");
+  } else if (humanScore < computerScore) {
+    console.log("The final winner is the Computer");
+  } else {
+    console.log("The game is tie");
+  }
 }
 
 playGame(5);
