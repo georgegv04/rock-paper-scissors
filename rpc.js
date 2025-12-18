@@ -15,7 +15,7 @@ function playGame(numberOfGames) {
   let humanChoice;
   let computerChoice;
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < numberOfGames; i++) {
     humanChoice = getHumanChoice();
     computerChoice = getComputerChoice();
 
