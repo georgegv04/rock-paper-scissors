@@ -1,7 +1,7 @@
 function getComputerChoice() {
-  let things = ["rock", "paper", "scissors"];
-  let thing = things[Math.floor(Math.random() * things.length)];
-  return thing;
+  let choices = ["rock", "paper", "scissors"];
+  let computerChoice = choices[Math.floor(Math.random() * choices.length)];
+  return computerChoice;
 }
 
 function getHumanChoice() {
