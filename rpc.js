@@ -96,18 +96,21 @@ function playRound(humanChoice) {
   const computerChoice = getComputerChoice();
   let userChoice = humanChoice.toLowerCase();
 
+  const result = document.querySelector("#results");
+
   if (userChoice === computerChoice) {
-    console.log("It's a tie");
+    result.textContent = "It's a tie";
   } else if (
     (userChoice === "rock" && computerChoice === "scissors") ||
     (userChoice === "paper" && computerChoice === "rock") ||
     (userChoice === "scissors" && computerChoice === "paper")
   ) {
     humanScore++;
-    console.log(`You win! ${userChoice} beat's ${computerChoice}`);
+    // console.log(`You win! ${userChoice} beat's ${computerChoice}`);
+    result.textContent = `You win! ${userChoice} beat's ${computerChoice}`;
   } else {
     computerScore++;
-    console.log(`You lose! ${computerChoice} beat's ${userChoice}`);
+    result.textContent = `You lose! ${computerChoice} beat's ${userChoice}`;
   }
 }
 
