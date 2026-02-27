@@ -92,7 +92,8 @@ function getHumanChoice() {
   return userInput;
 }
 
-function playRound(humanChoice, computerChoice) {
+function playRound(humanChoice) {
+  const computerChoice = getComputerChoice();
   let userChoice = humanChoice.toLowerCase();
 
   if (userChoice === computerChoice) {
@@ -110,23 +111,39 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-function playGame() {
-  for (let i = 0; i < 5; i++) {
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-  }
-  if (humanScore > computerScore) {
-    console.log(`You win, and the score was ${humanScore} to ${computerScore}`);
-  } else if (humanScore < computerScore) {
-    console.log(
-      `You lose, and the score was ${computerScore} to ${humanScore} `,
-    );
-  } else {
-    console.log(
-      `The game was a tie, and the game finished ${humanScore} - ${computerScore}`,
-    );
-  }
-}
+const rockBtn = document.querySelector("#rock");
+const paperBtn = document.querySelector("#paper");
+const scissorsBtn = document.querySelector("#scissors");
 
-playGame();
+rockBtn.addEventListener("click", () => {
+  playRound("rock");
+});
+
+paperBtn.addEventListener("click", () => {
+  playRound("paper");
+});
+
+scissorsBtn.addEventListener("click", () => {
+  playRound("scissors");
+});
+
+// function playGame() {
+//   for (let i = 0; i < 5; i++) {
+//     const humanSelection = getHumanChoice();
+//     const computerSelection = getComputerChoice();
+//     playRound(humanSelection, computerSelection);
+//   }
+//   if (humanScore > computerScore) {
+//     console.log(`You win, and the score was ${humanScore} to ${computerScore}`);
+//   } else if (humanScore < computerScore) {
+//     console.log(
+//       `You lose, and the score was ${computerScore} to ${humanScore} `,
+//     );
+//   } else {
+//     console.log(
+//       `The game was a tie, and the game finished ${humanScore} - ${computerScore}`,
+//     );
+//   }
+// }
+
+// playGame();
