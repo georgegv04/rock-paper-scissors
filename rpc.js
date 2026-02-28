@@ -4,15 +4,12 @@ let computerScore = 0;
 const resultDiv = document.querySelector("#results");
 const scoreDiv = document.querySelector(".runningResult");
 
+const buttons = document.querySelectorAll("button");
+
 function getComputerChoice() {
   let choices = ["paper", "rock", "scissors"];
   let randomChoice = choices[Math.floor(Math.random() * choices.length)];
   return randomChoice;
-}
-
-function getHumanChoice() {
-  let userInput = prompt("Choice");
-  return userInput;
 }
 
 function updateScoreDisplay() {
@@ -31,13 +28,12 @@ function checkWinner() {
 
 function playRound(humanChoice) {
   const computerChoice = getComputerChoice();
-  let userChoice = humanChoice.toLowerCase();
 
-  if (userChoice === computerChoice) {
+  if (humanChoice === computerChoice) {
   } else if (
-    (userChoice === "rock" && computerChoice === "scissors") ||
-    (userChoice === "paper" && computerChoice === "rock") ||
-    (userChoice === "scissors" && computerChoice === "paper")
+    (humanChoice === "rock" && computerChoice === "scissors") ||
+    (humanChoice === "paper" && computerChoice === "rock") ||
+    (humanChoice === "scissors" && computerChoice === "paper")
   ) {
     humanScore++;
   } else {
@@ -48,25 +44,27 @@ function playRound(humanChoice) {
 }
 
 function disableButtons() {
-  const buttons = document.querySelectorAll("button");
-
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].disabled = true;
   }
 }
 
-const rockBtn = document.querySelector("#rock");
-const paperBtn = document.querySelector("#paper");
-const scissorsBtn = document.querySelector("#scissors");
+const game = document.querySelector("#game");
 
-rockBtn.addEventListener("click", () => {
-  playRound("rock");
-});
+game.addEventListener("click", (event) => {
+  let target = event.target;
 
-paperBtn.addEventListener("click", () => {
-  playRound("paper");
-});
+  switch (target.id) {
+    case "rock":
+      playRound("rock");
+      break;
 
-scissorsBtn.addEventListener("click", () => {
-  playRound("scissors");
+    case "paper":
+      playRound("paper");
+      break;
+
+    case "scissors":
+      playRound("scissors");
+      break;
+  }
 });
